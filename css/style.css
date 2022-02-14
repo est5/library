@@ -4,6 +4,10 @@
   border: none;
 }
 
+:root {
+  --gray: #e2e8f0;
+}
+
 .container {
   font-family: Roboto, sans-serif;
   display: grid;
@@ -13,9 +17,10 @@
 }
 
 h1 {
-  font-family: serif;
+  font-family: "Roboto Slab", serif;
   font-size: 3rem;
   color: #262626;
+  align-self: start;
 }
 
 header {
@@ -24,12 +29,14 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 2rem;
+  padding: 1rem;
+  background-color: var(--gray);
+  box-shadow: 0px 2px 10px black;
 }
 
 .main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 25px;
   padding: 20px;
 }
@@ -38,19 +45,21 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #18181b;
+  background-color: var(--gray);
   grid-row: 3;
+  padding: 0.3vh;
+  box-shadow: 0px 2px 10px black;
 }
 
 a {
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: 500;
   font-size: 1.3rem;
   text-decoration: none;
 }
 
 a:link {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 a:hover {
   font-size: 1.35rem;
@@ -58,11 +67,11 @@ a:hover {
 }
 
 a:visited {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 a:active {
-  color: white;
+  color: #1c7ed6;
 }
 
 .show-form {
@@ -77,7 +86,7 @@ button {
   font-size: 1.4rem;
   font-weight: 600;
   color: white;
-  background-color: #14532d;
+  background-color: #000000;
 }
 
 #book-form {
@@ -92,7 +101,7 @@ button {
   transform: translate(-50%, 0);
   visibility: hidden;
   z-index: 1;
-  background-color: #d6d3d1;
+  background-color: var(--gray);
 }
 
 #book-form p {
@@ -105,23 +114,23 @@ legend {
   align-self: center;
 }
 
-input[type="text"] {
+input {
   border: 2px solid black;
   border-radius: 7px;
   font-size: 1.3rem;
   margin-top: 5px;
-  background-color: rgb(228, 228, 228);
+  background-color: white;
 }
 
 .card {
   display: grid;
-  grid-template-columns: 1fr 0.5fr;
-  grid-template-rows: 1fr 1fr 0.5fr;
-  min-height: 150px;
-  border: 1px solid #262626;
-  border-radius: 10%;
-  padding: 10px;
-  background-color: #d6d3d1;
+  grid-template-columns: 1fr 0.3fr;
+  grid-template-rows: 1fr 1fr 1fr 0.5fr;
+  max-height: 150px;
+  border-radius: 5%;
+  padding: 20px;
+  background-color: #e5e5e5;
+
   font-size: 1.3rem;
 }
 
@@ -129,7 +138,7 @@ input[type="text"] {
   width: fit-content;
   font-size: 1rem;
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 4;
 }
 .card-title {
   grid-row: 1;
@@ -137,4 +146,69 @@ input[type="text"] {
 
 .card-author {
   grid-column: 1;
+}
+
+.card-pages {
+  grid-column: 1;
+}
+
+.card-read {
+  grid-row: 4;
+}
+
+.card-read label {
+  padding-right: 10px;
+}
+
+ion-icon {
+  font-size: 1.5rem;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 40px;
+  height: 16px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background: #ebebeb;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  transition: background 0.3s;
+  box-sizing: border-box;
+}
+input[type="checkbox"]:after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  transition: left 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+input[type="checkbox"]:checked {
+  background: #a6c7ff;
+  border-color: #8daee5;
+}
+input[type="checkbox"]:checked:after {
+  left: 23px;
+  border-color: #8daee5;
+}
+
+input[type="checkbox"]:hover:not(:checked):not(:disabled):after,
+input[type="checkbox"]:focus:not(:checked):not(:disabled):after {
+  left: 0px;
+}
+
+input[type="checkbox"]:hover:checked:not(:disabled):after,
+input[type="checkbox"]:focus:checked:not(:disabled):after {
+  left: 22px;
+}
+
+input[type="checkbox"]:disabled {
+  opacity: 0.5;
 }
