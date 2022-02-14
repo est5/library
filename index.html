@@ -33,15 +33,38 @@
         <form action="index.html" id="book-form">
           <p>
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" required />
+            <p class="warning">*Max 100 characters</p>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              required
+              maxlength="100"
+            />
           </p>
           <p>
             <label for="author">Author</label>
-            <input type="text" name="author" id="author" required />
+            <p class="warning">*Max 100 characters</p>
+
+            <input
+              type="text"
+              name="author"
+              id="author"
+              required
+              maxlength="100"
+            />
           </p>
           <p>
             <label for="npages">Number of pages</label>
-            <input type="number" id="npages" name="npages" required />
+            <p class="warning">*Max 5000</p>
+
+            <input
+              type="number"
+              id="npages"
+              name="npages"
+              max="5000"
+              required
+            />
           </p>
           <p>
             <label for="read">Read</label>

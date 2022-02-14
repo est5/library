@@ -8,8 +8,6 @@ let counter = 0;
 tempValues();
 
 showForm.addEventListener("click", () => {
-  console.log(library);
-
   addBookForm.elements["author"].value = "";
   addBookForm.elements["title"].value = "";
   addBookForm.elements["npages"].value = "";
@@ -31,8 +29,7 @@ function addBookToLibrary() {
   let title = addBookForm.elements["title"].value;
   let pages = addBookForm.elements["npages"].value;
   let read = addBookForm.elements["read"].checked;
-
-  if (author == "" || title == "") {
+  if (author == "" || title == "" || pages > 5000) {
     return;
   }
 
@@ -91,9 +88,7 @@ function createBookCards(book) {
 
   button.addEventListener("click", () => {
     --counter;
-    console.log(counter);
     library.splice(counter);
-    console.log(library);
     button.parentNode.remove();
   });
 
