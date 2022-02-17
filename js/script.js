@@ -5,6 +5,15 @@ const addBookForm = document.querySelector("#book-form");
 const main = document.querySelector(".main");
 let counter = 0;
 
+class Book {
+  constructor(title, author, npages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = npages;
+    this.read = read;
+  }
+}
+
 tempValues();
 
 showForm.addEventListener("click", () => {
@@ -16,13 +25,6 @@ showForm.addEventListener("click", () => {
     ? (addBookForm.style.visibility = "hidden")
     : (addBookForm.style.visibility = "visible");
 });
-
-function Book(title, author, npages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = npages;
-  this.read = read;
-}
 
 function addBookToLibrary() {
   let author = addBookForm.elements["author"].value;
@@ -37,6 +39,15 @@ function addBookToLibrary() {
   library.push(book);
   addBookForm.style.visibility = "hidden";
   createBookCards(book);
+}
+
+function tempValues() {
+  let a = new Book("Lord of the Rings", "J. R. R. Tolkien", 1178, true);
+  let b = new Book("Eloquent JavaScript", "Marijn Haverbeke", 472, false);
+  library.push(a);
+  library.push(b);
+  createBookCards(a);
+  createBookCards(b);
 }
 
 function createBookCards(book) {
@@ -97,13 +108,4 @@ function createBookCards(book) {
   });
 
   counter++;
-}
-
-function tempValues() {
-  let a = new Book("Lord of the Rings", "J. R. R. Tolkien", 1178, true);
-  let b = new Book("Eloquent JavaScript", "Marijn Haverbeke", 472, false);
-  library.push(a);
-  library.push(b);
-  createBookCards(a);
-  createBookCards(b);
 }
